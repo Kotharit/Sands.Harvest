@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sands of Dumas: A Geological Journey</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <div class="header__logo">
+                    <h1>Sands of Dumas</h1>
+                    <p>A Geological Journey</p>
+                </div>
+                <nav class="header__nav">
+                    <button class="nav-btn" data-section="overview">Overview</button>
+                    <button class="nav-btn" data-section="materials">Materials</button>
+                    <button class="nav-btn" data-section="comparison">Compare</button>
+                    <button class="nav-btn" data-section="map">Map</button>
+                    <button class="nav-btn" data-section="data">Data</button>
+                    <button class="nav-btn" data-section="bibliography">Research</button>
+                    <button class="nav-btn" data-section="fieldwork">Fieldwork</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Overview Section -->
+        <section id="overview" class="section section--active">
+            <div class="container">
+                <div class="overview">
+                    <div class="overview__header">
+                        <h2>Exploring Six Distinct Sediment Types</h2>
+                        <p>Around Dumas Beach and Surat, Gujarat, revealing unique geological characteristics including the famous black sand phenomenon and diverse coastal sedimentology.</p>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-card__number">1,663</div>
+                            <div class="stat-card__label">Coastline Length (km)</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card__number">87%</div>
+                            <div class="stat-card__label">Stable Coastline</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card__number">6</div>
+                            <div class="stat-card__label">Materials Studied</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card__number">12</div>
+                            <div class="stat-card__label">Research Sources</div>
+                        </div>
+                    </div>
+
+                    <div class="overview__map">
+                        <div class="map-placeholder">
+                            <h3>Study Area: Dumas Beach & Surat Region</h3>
+                            <div class="map-pins">
+                                <div class="map-pin" data-material="beach_sands" style="left: 30%; top: 40%;">
+                                    <div class="pin" style="background-color: #D2B48C;"></div>
+                                    <span>Beach Sands</span>
+                                </div>
+                                <div class="map-pin" data-material="dumas_sand" style="left: 25%; top: 45%;">
+                                    <div class="pin" style="background-color: #2F2F2F;"></div>
+                                    <span>Dumas Beach</span>
+                                </div>
+                                <div class="map-pin" data-material="volleyball_sand" style="left: 45%; top: 35%;">
+                                    <div class="pin" style="background-color: #F5DEB3;"></div>
+                                    <span>Volleyball Court</span>
+                                </div>
+                                <div class="map-pin" data-material="red_soil" style="left: 55%; top: 30%;">
+                                    <div class="pin" style="background-color: #CD5C5C;"></div>
+                                    <span>Red Soil</span>
+                                </div>
+                                <div class="map-pin" data-material="coastal_grasses" style="left: 20%; top: 50%;">
+                                    <div class="pin" style="background-color: #9ACD32;"></div>
+                                    <span>Coastal Grasses</span>
+                                </div>
+                                <div class="map-pin" data-material="riverine_sediment" style="left: 40%; top: 42%;">
+                                    <div class="pin" style="background-color: #8FBC8F;"></div>
+                                    <span>Tapi River</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Materials Section -->
+        <section id="materials" class="section">
+            <div class="container">
+                <div class="materials">
+                    <div class="materials__header">
+                        <h2>Material Explorer</h2>
+                        <div class="material-filters">
+                            <button class="filter-btn filter-btn--active" data-filter="all">All Materials</button>
+                            <button class="filter-btn" data-filter="beach_sands">Beach Sands</button>
+                            <button class="filter-btn" data-filter="dumas_sand">Dumas Sand</button>
+                            <button class="filter-btn" data-filter="volleyball_sand">Volleyball Sand</button>
+                            <button class="filter-btn" data-filter="red_soil">Red Soil</button>
+                            <button class="filter-btn" data-filter="coastal_grasses">Coastal Grasses</button>
+                            <button class="filter-btn" data-filter="riverine_sediment">Riverine Sediment</button>
+                        </div>
+                    </div>
+                    
+                    <div class="materials-grid" id="materialsGrid">
+                        <!-- Material cards will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section id="comparison" class="section">
+            <div class="container">
+                <div class="comparison">
+                    <h2>Material Comparison Tool</h2>
+                    <div class="comparison__controls">
+                        <div class="comparison__selects">
+                            <select id="material1" class="form-control">
+                                <option value="">Select First Material</option>
+                            </select>
+                            <select id="material2" class="form-control">
+                                <option value="">Select Second Material</option>
+                            </select>
+                            <button class="btn btn--primary" id="compareBtn">Compare</button>
+                        </div>
+                    </div>
+                    <div id="comparisonResults" class="comparison__results hidden">
+                        <!-- Comparison results will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section id="map" class="section">
+            <div class="container">
+                <div class="map-section">
+                    <h2>Interactive Sampling Locations</h2>
+                    <div class="map-container">
+                        <div class="detailed-map">
+                            <h3>Gulf of Khambhat - Surat Region</h3>
+                            <div class="map-legend">
+                                <h4>Material Types</h4>
+                                <div class="legend-items">
+                                    <div class="legend-item">
+                                        <div class="legend-color" style="background-color: #D2B48C;"></div>
+                                        <span>Beach Sands</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-color" style="background-color: #2F2F2F;"></div>
+                                        <span>Dumas Black Sand</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-color" style="background-color: #F5DEB3;"></div>
+                                        <span>Volleyball Court Sand</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-color" style="background-color: #CD5C5C;"></div>
+                                        <span>Red Soil</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-color" style="background-color: #9ACD32;"></div>
+                                        <span>Coastal Grasses</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-color" style="background-color: #8FBC8F;"></div>
+                                        <span>Riverine Sediment</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Visualization Section -->
+        <section id="data" class="section">
+            <div class="container">
+                <div class="data-section">
+                    <h2>Data Visualization</h2>
+                    <div class="charts-grid">
+                        <div class="chart-container" style="position: relative; height: 400px;">
+                            <h3>Data Availability by Material</h3>
+                            <canvas id="dataAvailabilityChart"></canvas>
+                        </div>
+                        <div class="chart-container" style="position: relative; height: 400px;">
+                            <h3>Material Distribution</h3>
+                            <canvas id="materialDistributionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bibliography Section -->
+        <section id="bibliography" class="section">
+            <div class="container">
+                <div class="bibliography">
+                    <h2>Research Sources & Bibliography</h2>
+                    <div class="bibliography__content">
+                        <div class="bibliography-item">
+                            <div class="citation-type">Government Report</div>
+                            <h3>Shoreline Change Atlas of India - Volume I (Gujarat, Daman and Diu)</h3>
+                            <p><strong>Authors:</strong> Ratheesh R., Rajput P., Bhatti H, Rajawat A.S, Rajak D.R</p>
+                            <p><strong>Year:</strong> 2021 | <strong>Publisher:</strong> Space Applications Centre, ISRO</p>
+                            <p><strong>Relevance:</strong> High - Gujarat coastal sediment dynamics</p>
+                            <a href="https://vedas.sac.gov.in/vcms/static/atlas/slc/Shoreline_Change_Atlas_Vol-I.pdf" target="_blank" class="btn btn--outline">Access Document</a>
+                        </div>
+                        <div class="bibliography-item">
+                            <div class="citation-type">Technical Paper</div>
+                            <h3>Geology of Gujarat</h3>
+                            <p><strong>Authors:</strong> V.N. Kulkarni</p>
+                            <p><strong>Year:</strong> 1985 | <strong>Publisher:</strong> Engineering Research Institute, Gujarat State</p>
+                            <p><strong>Relevance:</strong> High - Regional geology and formations</p>
+                            <a href="https://guj-nwrws.gujarat.gov.in/downloads/geology_of_gujarat_eng.pdf" target="_blank" class="btn btn--outline">Access Document</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fieldwork Guide Section -->
+        <section id="fieldwork" class="section">
+            <div class="container">
+                <div class="fieldwork">
+                    <h2>Fieldwork Guide</h2>
+                    <div class="fieldwork-grid">
+                        <div class="fieldwork-card">
+                            <h3>Key Coordinates</h3>
+                            <div class="coordinate-list">
+                                <div class="coordinate-item">
+                                    <strong>Dumas Beach:</strong> 21°05'24"N, 72°45'36"E
+                                </div>
+                                <div class="coordinate-item">
+                                    <strong>Tapi River Mouth:</strong> 21°06'12"N, 72°44'24"E
+                                </div>
+                                <div class="coordinate-item">
+                                    <strong>Red Soil Sites:</strong> Interior areas 15-30km east of Surat city
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="fieldwork-card">
+                            <h3>Required Permissions</h3>
+                            <ul>
+                                <li>Surat Municipal Corporation for beach access and sampling</li>
+                                <li>Gujarat Coastal Zone Management Authority for sediment collection</li>
+                                <li>Sports Authority of India for volleyball court sand specifications</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="fieldwork-card">
+                            <h3>Analytical Methods</h3>
+                            <ul>
+                                <li><strong>Grain Size:</strong> Sieve analysis (4φ to -2φ at 0.5φ intervals)</li>
+                                <li><strong>Mineralogy:</strong> XRD analysis, heavy mineral separation</li>
+                                <li><strong>Geochemistry:</strong> ICP-MS for trace elements, iron oxide quantification</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Material Details Modal -->
+    <div id="materialModal" class="modal hidden">
+        <div class="modal__backdrop"></div>
+        <div class="modal__content">
+            <button class="modal__close">&times;</button>
+            <div id="modalContent">
+                <!-- Content populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
